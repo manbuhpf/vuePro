@@ -7,6 +7,8 @@ import App from './App'
 //import store from './vuex/store.js'
 import Public from './assets/js/public.js'
 import axios from 'axios'
+import "./assets/scss/global.scss"
+import "./assets/font/iconfont.css"
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
@@ -17,7 +19,7 @@ Vue.use(Public);
 new Vue({
   el: '#app',
   router,
- // store,
+ //store,
   template: '<App/>',
   render:r => r(App)
 })
