@@ -6,12 +6,12 @@
             <div class="list_div">
                 <i class="flexbox_mine">&#xe70e;</i>
                 <span>用户名称</span>
-                <input type="text" v-model="user.name" />           
+                <input type="text" v-model="userName" @change="changeName" />           
             </div>
             <div class="list_div">
                 <i class="flexbox_mine">&#xe73a;</i>
                 <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</span>
-                <input type="text" v-model="user.password" />           
+                <input type="text" v-model="password" @change="changePassword" />           
             </div>
             <p class="login_p">
                 <a href="#">忘记密码？</a>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+    import * as types from '@/vuex/types.js'
     export default {
         name: 'login',
         data() {
@@ -31,6 +32,22 @@
                     name: '',
                     password: ''
                 }
+            }
+        },
+        computed: {
+            userName : function(){ 
+                return this.$store.state.userModule.userName
+            },
+            password : function(){ 
+                return this.$store.state.userModule.password
+            }
+        },
+        methods: {
+            changeName() {
+                this.$store.dispatch(types.USER_NAME,this.$data.user.password)
+            },
+            changePassword() {
+                this.$store.dispatch(types.PASSWORD,this.$data)
             }
         }
     }
