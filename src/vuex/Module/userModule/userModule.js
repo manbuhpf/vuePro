@@ -2,8 +2,9 @@ import * as types from '@/vuex/types.js'
 
 // user的vuex树的state
 const state = {
-	userName: '32312',
-	password: ''
+	userName: '漫步hpf',
+	password: '',
+	registerData:{}
 }
 // user的vuex树的同步操作状态的mutations
 const mutations = {
